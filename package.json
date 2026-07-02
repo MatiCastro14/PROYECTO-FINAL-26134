@@ -1,0 +1,23 @@
+{
+  "name": "proyecto-final-26134",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatiCastro14/PROYECTO-FINAL-26134.git"
+  },
+  "keywords": [],
+  "author": "Matias Castro",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/MatiCastro14/PROYECTO-FINAL-26134/issues"
+  },
+  "homepage": "https://github.com/MatiCastro14/PROYECTO-FINAL-26134#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "firebase": "^12.15.0"
+  }
+}
