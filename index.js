@@ -1,9 +1,15 @@
+import 'dotenv/config';
 import dotenv from 'dotenv';
 dotenv.config();
 
-import express from 'express';
+import app from './app.js';
 
-import productsRouter from './src/routes/products.router.js';
+
+app.use("/api/products", productsRouter);
+
+
+import authRouter from './src/routes/auth.router.js';
+app.use("/api/auth", authRouter);
 
 const app = express()
 
