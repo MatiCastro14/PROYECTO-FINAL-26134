@@ -1,7 +1,15 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
+
+import productsRouter from './src/routes/products.router.js';
 
 const app = express()
 
-const port = process.env.PORT || 3000
-app.listen(port, () => {http://localhost:${port}/`});
-    
+app.use("/api/products", productsRouter);
+
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => 'http://localhost:${PORT}');
+
