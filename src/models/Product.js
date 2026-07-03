@@ -1,4 +1,4 @@
-import db from "../../firebase.js";
+import db from "../config/firebase.js";
 import {
     addDoc,
     collection,
@@ -23,5 +23,3 @@ snapshot.forEach((doc) => {
 
 return products;
 }
-
-const productsCollection = collection

@@ -1,15 +1,11 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
-import express from 'express';
-
-import productsRouter from './src/routes/products.router.js';
-
-const app = express()
-
-app.use("/api/products", productsRouter);
+import app from './app.js';
 
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => 'http://localhost:${PORT}');
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
 
