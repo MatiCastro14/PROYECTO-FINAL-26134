@@ -1,8 +1,8 @@
-import "dotenv/config";
-
+import dotenv from "dotenv";
 dotenv.config();
+
+
 import express from "express";
-import productsRouter from "./src/routes/products.router.js";
 
 
 const app = express();
@@ -13,6 +13,7 @@ app.get("/", (req, res) => {
     res.json({ message: "Bienvenidos a la API RESTfull" });
 });
 
+import productsRouter from "./src/routes/products.router.js";
 app.use("/api/products", productsRouter);
 
 import authRouter from "./src/routes/auth.router.js";
