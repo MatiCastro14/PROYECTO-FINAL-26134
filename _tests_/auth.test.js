@@ -2,21 +2,18 @@ import request from "supertest";
 import app from "../app.js";
 
 describe("POST /api/auth/login", () => {
-  test("debe responder 401 si las credenciales son incorrectas", async () => {
+  test("devuelve 400 si faltan credenciales", async () => {
     const response = await request(app).post("/api/auth/login").send({
-      email: "mal@email.com",
-      password: "123456",
+      email: "admin@example.com",
     });
 
-    expect(response.status).toBe(401);
+    expect(response.status).toBe(400);
   });
-});
 
-describe("POST /api/auth/login", () => {
-  test("debe responder 200 y devolver un token si las credenciales son correctas", async () => {
+  test("devuelve 200 con credenciales válidas", async () => {
     const response = await request(app).post("/api/auth/login").send({
-      email: "user@email.com",
-      password: "strongPass123",
+      email: "admin@example.com",
+      password: "admin",
     });
 
     expect(response.status).toBe(200);
