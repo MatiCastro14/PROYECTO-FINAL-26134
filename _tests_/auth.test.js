@@ -10,6 +10,13 @@ describe("POST /api/auth/login", () => {
     expect(response.status).toBe(400);
   });
 
+  test("devuelve 400 si no llega body", async () => {
+    const response = await request(app).post("/api/auth/login");
+
+    expect(response.status).toBe(400);
+    expect(response.body.message).toBe("Faltan credenciales");
+  });
+
   test("devuelve 200 con credenciales válidas", async () => {
     const response = await request(app).post("/api/auth/login").send({
       email: "admin@example.com",
