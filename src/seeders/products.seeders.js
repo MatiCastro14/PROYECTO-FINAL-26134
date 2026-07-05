@@ -3,7 +3,7 @@ import { collection, addDoc } from "firebase/firestore";
 
 const motosCollection = collection(db, "Motos");
 
-export const motosSeeders = [
+ const motosSeeders = [
   {
     modelo: "CBR 600RR",
     marca: "Honda",
@@ -36,11 +36,15 @@ export const motosSeeders = [
   },
 ];
 
-const createMoto = () => {
-    motosSeeders.forEach(async (moto) => {
-        await addDoc(motosCollection, moto);
-    });
-}
+const createMoto = async () => {
+  for (const moto of motosSeeders) {
+    await addDoc(motosCollection, moto);
+    console.log(`Moto agregada: ${moto.modelo}`);
+  }
+};
 
-createMoto();
+createMoto().catch((error) => {
+  console.error("Error al insertar las motos:", error);
+  process.exit(1);
+});
 

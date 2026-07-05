@@ -9,17 +9,27 @@ import {
     doc,
   } from "firebase/firestore"; 
 
-const productsCollection = collection(db, "products");
+const motoCollection = collection(db, "motos");
 
-export const getProducts = async (req, res) => {
-    const snapshot = await getDocs(productsCollection);
-const products = [];
+
+const getallMotos = async (req, res) => {
+    const snapshot = await getDocs(motoCollection);
+    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  }
+  
+
+export const getMotos = async (req, res) => {
+    const snapshot = await getDocs(motoCollection);
+const motos = [];
 
 snapshot.forEach((doc) => {
-    products.push({ 
+    motos.push({ 
         id: doc.id, ...doc.data()
      });
 });
 
-return products;
+
+
+
+return motos;
 }
