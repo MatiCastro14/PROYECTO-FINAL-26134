@@ -1,18 +1,12 @@
-import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-
 dotenv.config();
 
-const secretKey = process.env.JWT_SECRET || "secreto-dev";
-
+import jwt from "jsonwebtoken";
 export const generateToken = (userData) => {
   const payload = {
     id: userData.id,
-    email: userData.email,
-    name: userData.name,
-    admin: userData.admin,
   };
+console.log("La clave secreta actual es:", process.env.JWT_SECRET);
 
-  return jwt.sign(payload, secretKey, { expiresIn: "1h" });
+  return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
 };
-
