@@ -3,28 +3,28 @@ dotenv.config();
 
 import jwt from "jsonwebtoken";
 
-const secretKey = process.env.JWT_SECRET;
-
 export const authentication = (req, res, next) => {
-  const authHeader = req.headers.authorization || "";
+    
+  const authHeader = req.headers.authorization;
 
   if (!authHeader) {
     return res.status(401).json({ message: "Token no enviado" });
   }
 
-  const [scheme, token] = authHeader.split(" ");
+ const token = authHeader.split(" ")[1];
 
-  if (!token || (scheme.toLowerCase() !== "bearer" && scheme.toLowerCase() !== "token")) {
-    return res.status(401).json({ message: "Token no válido" });
-  }
+ if(!token){
+    return res.status(401).json({ message: "Token no Valido " });
 
-  try {
-    const decoded = jwt.verify(token, secretKeys);
+ }
+
+ try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
-  } catch (error) {
-    console.error("Error al verificar token:", error.message,secretKey);
-    return res.status(401).json({ message: "Token no válido", error: error.message });
-  }
+    }
+    catch (error) {
+        return res.status(401).json({ message: "Token no Valido " });
+    }
 };
 

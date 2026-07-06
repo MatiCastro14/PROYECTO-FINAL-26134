@@ -9,7 +9,7 @@ import {
     doc,
   } from "firebase/firestore"; 
 
-const motoCollection = collection(db, "motos");
+const motoCollection = collection(db, "Motos");
 
 
 export const getallMotos = async () => {
