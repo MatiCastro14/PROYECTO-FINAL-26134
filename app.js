@@ -4,6 +4,10 @@ dotenv.config();
 
 import express from "express";
 
+import motosRouter from "./src/routes/motos.router.js";
+import authRouter from "./src/routes/auth.router.js";
+import { authentication as auth } from "./src/middlewares/auth.middleware.js";
+
 
 const app = express();
 
@@ -13,10 +17,13 @@ app.get("/", (req, res) => {
     res.json({ message: "Bienvenidos a la API RESTfull" });
 });
 
-import productsRouter from "./src/routes/products.router.js";
-app.use("/api/products", productsRouter);
 
-import authRouter from "./src/routes/auth.router.js";
+app.use("/api/motos",auth, motosRouter);
+
+
+
+//Autorizacion
+
 app.use("/api/auth", authRouter);
 
 export default app;

@@ -4,14 +4,13 @@ import { generateToken } from "../utils/token.generator.js";
 
 const default_user = {
     id: 1,
-
     name: "user",
     password: 'admin',
     email: 'admin@example.com', 
     admin: true
 }
 export const login = (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body || {};
 
   if (!email || !password) {
     return res.status(400).json({
