@@ -4,7 +4,6 @@ import { generateToken } from "../utils/token.generator.js";
 
 const default_user = {
     id: 1,
-
     name: "user",
     password: 'admin',
     email: 'admin@example.com', 
