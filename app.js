@@ -26,4 +26,11 @@ app.use("/api/motos",auth, motosRouter);
 
 app.use("/api/auth", authRouter);
 
+app.use("/api/categories", categoriesRouter);
+app.use("/api/users", usersRouter);
+
+
+
+
+
 export default app;
