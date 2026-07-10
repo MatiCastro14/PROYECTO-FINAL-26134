@@ -19,7 +19,7 @@ router.post("/", authentication, createMoto);
 
 router.get("/", getAllMotos);
 router.get("/:id", getMotoById);
-// router.get("/:sku", getMotoBySKU);
+
 
 router.put("/:id", authentication, updateMoto);
 
