@@ -7,7 +7,6 @@ import cors from "cors";
 import usersRouter from "./src/routes/users.router.js";
 import motosRouter from "./src/routes/motos.router.js";
 import authRouter from "./src/routes/auth.router.js";
-import { authentication as auth } from "./src/middlewares/auth.middleware.js";
 
 
 const app = express();
